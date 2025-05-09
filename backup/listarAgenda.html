@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Listar Agenda</title>
+</head>
+
+<body>
+    <main>
+
+        <section class="listarAgenda container lista">
+
+            <h2 class="titulo">
+                LISTA DE
+                <span>AGENDAMENTOS</span>
+            </h2>
+
+            <div class="container_itens">
+
+                <article class="box_item">
+                    <p><strong>Veículo:</strong> Honda Motor Co. Ltd. - Honda Civic</p>
+                    <p><strong>Funcionário:</strong> Fernanda Oliveira</p>
+                    <p><strong>Data Agenda:</strong> 29/08/2024 11:00</p>
+                    <p class="status textGreen">STATUS: <span>concluído</span></p>
+                </article>
+
+                <article class="box_item">
+                    <p><strong>Veículo:</strong> Honda Motor Co. Ltd. - Honda Civic</p>
+                    <p><strong>Funcionário:</strong> Juliana Mendes</p>
+                    <p><strong>Data Agenda:</strong> 29/08/2024 13:00</p>
+                    <p class="status textRed">STATUS: <span>cancelado</span></p>
+                </article>
+
+                <article class="box_item">
+                    <p><strong>Veículo:</strong> Honda Motor Co. Ltd. - Honda Civic</p>
+                    <p><strong>Funcionário:</strong> Pedro Lima</p>
+                    <p><strong>Data Agenda:</strong> 29/08/2024 15:00</p>
+                    <p class="status textBlue">STATUS: <span>em análise</span></p>
+                </article>
+            </div>
+
+            <a href="<?php echo BASE_URL ?>index.php?url=home" class="btnApp btnVoltar">VOLTAR</a>
+
+        </section>
+
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Perfil</title>
+</head>
+
+<body>
+    <main>
+
+        <section class="agendamento container">
+
+            <h2 class="titulo">
+                MEU PERFIL
+            </h2>
+
+            <div class="imgPerfil">
+                <div class="imgContainer">
+                    <img src="img/member_2.jpg" alt="">
+                </div>
+            </div>
+
+            <form method="" action="#" class="form_box container">
+
+                <div class="input_group">
+
+                    <!-- Nome -->
+                    <label for="txtNome">Nome:</label>
+                    <input name="txtNome" type="text">
+
+                    <!-- Email -->
+                    <label for="txtEmail">E-mail:</label>
+                    <input name="txtEmail" type="text">
+
+                    <!-- Telefone -->
+                    <label for="txtTelefone">Telefone:</label>
+                    <input name="txtTelefone" id="txtTelefone" type="text">
+
+                    <!-- CEP -->
+                    <label for="txtCEP">CEP:</label>
+                    <input name="txtCEP" type="text">
+                    <button type="button" id="txtCEP" class="btnApp bgBlue btnCEP">BUSCAR CEP</button>
+
+                    <!-- Logradouro -->
+                    <label for="txtLogradouro">Logradouro:</label>
+                    <input name="txtLogradouro" id="txtLogradouro" type="text" readonly>
+
+                    <!-- Cidade -->
+                    <label for="txtCidade">Cidade:</label>
+                    <input name="txtCidade" id="txtCidade" type="text" readonly>
+
+                    <div class="group">
+                        <!-- Estado -->
+                        <div class="col50">
+                            <label for="txtEstado">Estado:</label>
+                            <input name="txtEstado" id="txtEstado" type="text" readonly>
+                        </div>
+
+                        <!-- Numero -->
+                        <div class="col50">
+                            <label for="txtNumero">Numero:</label>
+                            <input name="txtNumero" id="txtNumero" type="text">
+                        </div>
+                    </div>
+
+                    <!-- Nova Senha -->
+                    <label for="txtNovaSenha">NOVA SENHA:</label>
+                    <input name="txtNovaSenha" id="txtNovaSenha" type="text">
+
+                    <label for="txtConfirmSenha">CONFIRMAR SENHA:</label>
+                    <input name="txtConfirmSenha" id="txtConfirmSenha" type="text">
+
+                </div>
+
+                <button type="submit" class="btnApp">SALVAR ALTERAÇÕES</button>
+            </form>
+
+            <a href="<?php echo BASE_URL ?>index.php?url=home" class="btnApp btnVoltar">VOLTAR</a>
+
+        </section>
+
+    </main>
+</body>
+
+</html>

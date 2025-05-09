@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Agendamento</title>
+</head>
+
+<body>
+    <main>
+
+        <section class="agendamento container">
+
+            <h2 class="titulo">
+                FAÇA SEU
+                <span>AGENDAMENTO</span>
+            </h2>
+
+            <form method="" action="#" class="form_box container">
+
+                <div class="input_group">
+
+                    <!-- Veículo -->
+                    <label for="dropVeiculo">veículo:</label>
+                    <select name="dropVeiculo" id="dropVeiculo">
+                        <option value="">-- Selecione --</option>
+                    </select>
+
+                    <!-- Data -->
+                    <label for="txtData">Data:</label>
+                    <input name="txtData" id="txtData" type="date">
+
+                    <!-- Hora -->
+                    <label for="txtHora">Hora:</label>
+                    <input name="txtHora" id="txtHora" type="time">
+
+
+                    <!-- Funcionário -->
+                    <label for="dropFuncionario">Funcionário:</label>
+                    <select name="dropFuncionario" id="dropFuncionario">
+                        <option value="">-- Selecione --</option>
+                    </select>
+
+                </div>
+
+                <button type="submit" class="btnApp">AGENDAR</button>
+            </form>
+
+            <ul class="menuButtons">
+                <li>
+                    <a href="<?php echo BASE_URL ?>index.php?url=home" class="btnApp btnVoltar">VOLTAR</a>
+                </li>
+                <li>
+                    <a href="listarAgenda.html" class="btnApp bgGreen">LISTAR AGENDA</a>
+                </li>
+            </ul>
+
+        </section>
+
+    </main>
+</body>
+
+</html>

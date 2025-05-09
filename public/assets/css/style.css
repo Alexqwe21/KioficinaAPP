@@ -1,0 +1,365 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'PACE';
+    src: url('../fonts/pace-racing-car/PACE.woff2') format('woff2'),
+        url('../fonts/pace-racing-car/PACE.woff') format('woff'),
+        url('../fonts/pace-racing-car/PACE.ttf') format('truetype'),
+        url('../fonts/pace-racing-car/PACE.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Sofast';
+    src: url('../fonts/sofast-racing-car/Sofast Regular/Sofast.woff2') format('woff2'),
+        url('../fonts/sofast-racing-car/Sofast Regular/Sofast.woff') format('woff'),
+        url('../fonts/sofast-racing-car/Sofast Regular/Sofast.ttf') format('truetype'),
+        url('../fonts/sofast-racing-car/Sofast Regular/Sofast.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --fontNoCorpo: "Sofast";
+    --titulos: 'PACE';
+    --arial: 'arial';
+    --corDoTexto: #ffffff;
+    --corDeFundo: #101010;
+    --cinzaEscuro: #383838;
+    --cinzaClaro: #4B4B4B;
+    --white-color: #ffffff;
+    --black-color: #000000;
+    --green-color: #25A23A;
+    --red-color: #ff0707;
+    --blue-color: #00C2FF;
+    --primary-color: #FFFF00;
+    --secondary-color: #FFC107;
+    --input-border: 1px solid #707070;
+}
+
+.bgRed {
+    background-color: var(--red-color) !important;
+}
+
+.sucesso{
+    font-family: var(--titulos) !important;
+    color: var(--green-color) !important;
+    text-align: center;
+    font-size: 1.8em;
+    font-style: italic;
+    margin: 20px 0;
+    text-transform: uppercase;
+}
+ 
+.erro{
+    font-family: var(--titulos);
+    color: var(--red-color);
+    text-align: center;
+    font-size: 1.8em;
+    font-style: italic;
+    margin: 20px 0;
+    text-transform: uppercase;
+}
+.bgGreen {
+    background-color: var(--green-color) !important;
+}
+
+.bgBlue {
+    background-color: var(--blue-color) !important;
+}
+
+.textRed {
+    color: var(--red-color) !important;
+}
+
+.textGreen {
+    color: var(--green-color) !important;
+}
+
+.textBlue {
+    color: var(--blue-color) !important;
+}
+
+.textYellow {
+    color: var(--primary-color) !important;
+}
+
+.container {
+    max-width: 400px;
+    width: 100%;
+    margin: auto;
+    padding-bottom: 10px;
+}
+
+body {
+    background-color: var(--corDeFundo);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+main {
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    img {
+        width: 60%;
+    }
+}
+
+
+.centro{
+    display: flex;
+    justify-content: center;
+
+}
+
+.imgPerfil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .imgContainer {
+        border-radius: 100%;
+        position: relative;
+        cursor: pointer;
+
+
+        img {
+            width: 150px;
+            height: 150px;
+            border-radius: 100%;
+            object-fit: cover;
+        }
+
+        &::after {
+            content: "+";
+            font-family: var(--titulos);
+            color: #FFFF00;
+            font-size: 6em;
+            font-style: italic;
+            position: absolute;
+            right: 6px;
+            bottom: -20px;
+        }
+    }
+
+
+}
+
+.btnApp {
+    width: 90%;
+    margin: 10px 0;
+    border: none;
+    height: 60px;
+    border-radius: 10px;
+    color: var(--corDoTexto);
+    background-color: var(--secondary-color);
+    font-family: var(--titulos);
+    font-style: italic;
+    font-size: 1.2em;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    line-height: 60px;
+}
+
+.btnCEP {
+    margin-top: 0 !important;
+    width: 100%;
+}
+
+.btnVoltar {
+    width: 40%;
+    margin-top: 20px !important;
+    margin: 0 auto;
+}
+
+.titulo {
+    font-family: var(--titulos);
+    color: var(--primary-color);
+    text-align: center;
+    font-size: 1.8em;
+    font-style: italic;
+    margin: 20px 0;
+    text-transform: uppercase;
+
+    span {
+        margin-top: 10px;
+        display: block;
+    }
+}
+
+.username {
+    font-family: var(--titulos);
+    color: var(--corDoTexto);
+    text-align: center;
+    font-size: 1.3em;
+    font-style: italic;
+    margin: 20px 0;
+}
+
+.form_box {
+    background-color: var(--white-color);
+    width: 95%;
+    padding: 20px 0;
+    border-radius: 20px;
+    margin-top: 30px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .input_group {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 90%;
+        gap: 8px;
+        font-family: var(--titulos);
+        font-style: italic;
+
+        .group {
+            display: flex;
+            text-align: center;
+            gap: 10px;
+
+            .col25 {
+                width: 25% !important;
+            }
+
+            .col50 {
+                width: 50% !important;
+            }
+
+            .col75 {
+                width: 75% !important;
+            }
+
+            .col100 {
+                width: 100% !important;
+            }
+        }
+
+        label {
+            text-align: center;
+
+            &.lblLogin {
+                text-align: left;
+            }
+        }
+
+        input,
+        select {
+            width: 100%;
+            height: 50px;
+            padding: 0 10px;
+            border: var(--input-border);
+            border-radius: 5px;
+            font-size: 1.1em;
+            outline-color: var(--secondary-color);
+        }
+
+        textarea {
+            resize: none;
+            padding: 10px;
+            outline-color: var(--secondary-color);
+            height: 150px;
+            font-size: 1.5em;
+        }
+
+        .esqueciSenha {
+            font-size: 0.8em;
+            color: var(--black-color);
+            align-self: flex-end;
+        }
+
+        .stars {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            font-style: normal;
+            color: #707070;
+            font-size: 4em;
+
+            .star {
+                cursor: pointer;
+                transition: color 0.3s ease-in-out;
+
+                &.selected {
+                    color: var(--primary-color);
+                }
+            }
+        }
+
+    }
+}
+
+.menuButtons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+    gap: 10px;
+
+    li {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+}
+
+.lista {
+    background-color: var(--cinzaEscuro);
+    padding: 20px 0;
+    width: 95%;
+    margin: 0 auto;
+    border-radius: 20px;
+}
+
+.container_itens {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    .box_item {
+        background-color: var(--cinzaClaro);
+        color: var(--corDoTexto);
+        border-radius: 20px;
+        padding: 20px 0;
+        width: 90%;
+        font-family: var(--arial);
+        font-size: 1.3em;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+
+        .status {
+            font-family: var(--titulos);
+            font-style: italic;
+
+            span {
+                font-family: var(--fontNoCorpo);
+            }
+        }
+    }
+}
