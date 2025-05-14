@@ -13,7 +13,7 @@
                 <span>DEPOIMENTO</span>
             </h2>
 
-            <form method="" action="#" class="form_box container">
+            <form method="POST" action="<?=BASE_URL?>index.php?url=depoimentos/enviarDepoimento" class="form_box container">
 
                 <div class="input_group">
 
@@ -42,7 +42,7 @@
 
     </main>
 
-    <script src="<?php echo BASE_URL ?>public/assets/js/script.js"></script>
+    <script src="<?php echo BASE_URL ?>assets/js/script.js"></script>
 </body>
 
 </html>
