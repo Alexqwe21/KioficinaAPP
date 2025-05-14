@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<?php require_once('template/head.php') ?>
+<?php require_once ('template/head.php') ?>
 
 <body>
     <main>
@@ -13,9 +13,13 @@
                 <span>DEPOIMENTO</span>
             </h2>
 
-            <form method="POST" action="<?= BASE_URL ?>index.php?url=depoimentos/enviarDepoimento" class="form_box container">
+            <form method="POST" action="<?=BASE_URL?>index.php?url=depoimentos/enviarDepoimento" class="form_box container">
 
                 <div class="input_group">
+
+                    <label for="descricao_depoimento">SEU DEPOIMENTO:</label>
+                    <textarea name="descricao_depoimento" id="descricao_depoimento" required></textarea>
+
                     <label>NOTA:</label>
                     <div class="stars">
                         <span class="star" data-value="1">&#9733;</span>
@@ -24,8 +28,7 @@
                         <span class="star" data-value="4">&#9733;</span>
                         <span class="star" data-value="5">&#9733;</span>
                     </div>
-                    <label for="descricao_depoimento">SEU DEPOIMENTO:</label>
-                    <textarea name="descricao_depoimento" id="descricao_depoimento" required></textarea>
+
                     <!-- Input escondido para armazenar a nota do depoimento -->
                     <input type="hidden" name="nota_depoimento" id="nota_depoimento" value="">
                 </div>
