@@ -51,7 +51,7 @@ class ListarAgendaController extends Controller
          $agendamentos = json_decode($response, true);
 
 
-         $agenda = [];
+          $agenda = [];
 
          if(is_array($agendamentos) && isset($agendamentos[0]) && is_array($agendamentos[0])){
             $agenda = $agendamentos;

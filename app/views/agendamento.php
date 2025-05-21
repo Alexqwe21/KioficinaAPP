@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<?php require_once ('template/head.php') ?>
+<?php require_once('template/head.php') ?>
 
 <body>
     <main>
@@ -13,29 +13,52 @@
                 <span>AGENDAMENTO</span>
             </h2>
 
-            <form method="" action="#" class="form_box container">
+            <form method="POST" action="#" class="form_box container">
 
                 <div class="input_group">
 
                     <!-- Veículo -->
-                    <label for="dropVeiculo">veículo:</label>
-                    <select name="dropVeiculo" id="dropVeiculo">
-                        <option value="">-- Selecione --</option>
+                    <label for="id_veiculo">veículo:</label>
+                    <select name="id_veiculo" id="id_veiculo">
+                        <option value="">--Selecione--</option>
+                        <?php foreach ($veiculos as $veiculo): ?>
+
+                            <option value="<?= $veiculo['id_veiculo'] ?>"><?= $veiculo['nome_modelo'] ?> - <?= $veiculo['cor_veiculo'] ?> - <?= $veiculo['ano_veiculo'] ?></option>
+                        <?php endforeach; ?>
                     </select>
 
-                    <!-- Data -->
-                    <label for="txtData">Data:</label>
-                    <input name="txtData" id="txtData" type="date">
 
-                    <!-- Hora -->
-                    <label for="txtHora">Hora:</label>
-                    <input name="txtHora" id="txtHora" type="time">
+                    <!-- Data -->
+                    <label for="data_agenda">Data:</label>
+                    <input name="data_agenda" id="data_agenda" type="date" value="<?= date('Y-m-d') ?>">
+
+
+                    <label for="id_hora">Hora:</label>
+                    <select name="id_hora" id="id_hora" required>
+                        <option value="">Selecione a hora</option>
+                        <option value="">08:00</option>
+                        <option value="">09:00</option>
+                        <option value="">10:00</option>
+                        <option value="">11:00</option>
+                        <option value="">12:00</option>
+                        <option value="">13:00</option>
+                        <option value="">14:00</option>
+                        <option value="">15:00</option>
+                        <option value="">16:00</option>
+                        <option value="">17:00</option>
+                    </select>
+
+
 
 
                     <!-- Funcionário -->
-                    <label for="dropFuncionario">Funcionário:</label>
-                    <select name="dropFuncionario" id="dropFuncionario">
+                    <label for="id_funcionario">Funcionário:</label>
+                    <select name="id_funcionario" id="id_funcionario">
                         <option value="">-- Selecione --</option>
+                        <?php foreach ($funcionarios as $funcionario): ?>
+                            <option value="<?= $funcionario['id_funcionario'] ?>"><?= $funcionario['nome_funcionario'] ?></option>
+
+                        <?php endforeach; ?>
                     </select>
 
                 </div>

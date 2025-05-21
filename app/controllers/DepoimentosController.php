@@ -25,11 +25,11 @@ class DepoimentosController extends Controller
 
         // Analisar preenchimento da descrição e da nota
 
-        if (empty($descricao) || empty($nota)) {
-            echo 'Preencha todos os campos';
-            return;
+                if (empty($descricao) || empty($nota)) {
+                    echo 'Preencha todos os campos';
+                    return;
 
-        }
+                }
 
         $postData = [
             'descricao_depoimento' => $descricao,

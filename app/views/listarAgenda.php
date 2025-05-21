@@ -36,14 +36,13 @@
 
                             case 'Cancelado':
                                 $statusClass = 'textRed';
-                                
                         }
                 ?>
 
                         <article class="box_item">
                             <p><strong>Veículo:</strong> <?= $agendamento['nome_modelo'] ?></p>
                             <p><strong>Funcionário:</strong> <?= $agendamento['nome_funcionario'] ?></p>
-                            <p><strong>Data Agenda: </strong><?= date('d/m/Y H:i', strtotime($agendamento['data_agendamento'])) ?></p>  
+                            <p><strong>Data Agenda: </strong><?= date('d/m/Y H:i', strtotime($agendamento['data_agendamento'])) ?></p>
                             <p class="status <?= $statusClass ?>">STATUS: <span><?= $agendamento['status_agendamento'] ?></span></p>
                         </article>
 
