@@ -91,7 +91,7 @@ class AgendamentoController extends Controller
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data = $_POST['data_agenda'];
             $hora = $_POST['id_hora'];
-            $dataAgendamento = $data . '' . $hora;
+            $dataAgendamento = $data . ' ' . $hora;
 
             $dataAgendamento = [
                 'id_veiculo' => $_POST['id_veiculo'],
@@ -104,7 +104,7 @@ class AgendamentoController extends Controller
             $chAgenda = curl_init($urlAgendar);
             curl_setopt($chAgenda, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($chAgenda, CURLOPT_POSTFIELDS, json_encode($dataAgendamento));
-            curl_setopt($chVeiculos, CURLOPT_HTTPHEADER, [
+            curl_setopt($chAgenda, CURLOPT_HTTPHEADER, [
                 'Authorization: Bearer ' . $_SESSION['token'],
                 'Content-Type: application/json'
             ]);
