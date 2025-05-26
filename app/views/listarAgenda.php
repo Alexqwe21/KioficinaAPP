@@ -13,6 +13,19 @@
                 <span>AGENDAMENTOS</span>
             </h2>
 
+            <?php if (isset($_SESSION['msg_sucesso'])): ?>
+                <div class="alert alert-success">
+                    <?= $_SESSION['msg_sucesso']; ?>
+                    <?php unset($_SESSION['msg_sucesso']); ?>
+                </div>
+            <?php endif; ?>
+
+            <?php if (isset($_SESSION['msg_erro'])): ?>
+                <div class="alert alert-danger">
+                    <?= $_SESSION['msg_erro']; ?>
+                    <?php unset($_SESSION['msg_erro']); ?>
+                </div>
+            <?php endif; ?>
 
 
 
@@ -25,7 +38,7 @@
                         $statusClass = '';
                         switch ($agendamento['status_agendamento']) {
                             case 'Em análise':
-                                $statusClass = 'textRed';
+                                $statusClass = 'textBlue';
                                 break;
                             case 'Agendado':
                                 $statusClass = 'textYellow';
@@ -40,10 +53,24 @@
                 ?>
 
                         <article class="box_item">
+
+                            <div class='card'>
+
+                                <form method="POST" action="<?= BASE_URL ?>index.php?url=listarAgenda/cancelarAgenda">
+                                    <input type="hidden" name="id_agendamento" value="<?= $agendamento['id_agendamento'] ?>">
+                                    <button type="submit" class="btn-cancelar" onclick="return confirm('Cancelar este agendamento?')">
+                                        &times;
+                                    </button>
+                                </form>
+                            </div>
+
                             <p><strong>Veículo:</strong> <?= $agendamento['nome_modelo'] ?></p>
                             <p><strong>Funcionário:</strong> <?= $agendamento['nome_funcionario'] ?></p>
                             <p><strong>Data Agenda: </strong><?= date('d/m/Y H:i', strtotime($agendamento['data_agendamento'])) ?></p>
                             <p class="status <?= $statusClass ?>">STATUS: <span><?= $agendamento['status_agendamento'] ?></span></p>
+
+
+
                         </article>
 
 

@@ -13,6 +13,21 @@
                 <span>AGENDAMENTO</span>
             </h2>
 
+            <?php if (isset($_SESSION['msg_sucesso'])): ?>
+                <div class="alert alert-success">
+                    <?= $_SESSION['msg_sucesso']; ?>
+                    <?php unset($_SESSION['msg_sucesso']); ?>
+                </div>
+            <?php endif; ?>
+
+            <?php if (isset($_SESSION['msg_erro'])): ?>
+                <div class="alert alert-danger">
+                    <?= $_SESSION['msg_erro']; ?>
+                    <?php unset($_SESSION['msg_erro']); ?>
+                </div>
+            <?php endif; ?>
+
+
             <form method="POST" action="#" class="form_box container">
 
                 <div class="input_group">
