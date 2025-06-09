@@ -39,19 +39,34 @@ class PerfilController extends Controller
                 $dadosAtualizados['senha_cliente'] = $_POST['senha'];
             }
 
+            // Junta os dados do formulário
+            $dadosEnviar = $dadosAtualizados;
+            // Se houver imagem, adiciona como CURLFile
+            if (isset($_FILES['foto_cliente']) && $_FILES['foto_cliente']['error'] === UPLOAD_ERR_OK) {
+                $dadosEnviar['foto_cliente'] = new CURLFile(
+                    $_FILES['foto_cliente']['tmp_name'],
+                    $_FILES['foto_cliente']['type'],
+                    $_FILES['foto_cliente']['name']
+                );
+            }
+
             $urlAtualizar = BASE_API . "atualizarCliente/" . $dadosToken['id'];
             $chAtualizar = curl_init($urlAtualizar);
             curl_setopt($chAtualizar, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($chAtualizar, CURLOPT_CUSTOMREQUEST, "PATCH");
-            curl_setopt($chAtualizar, CURLOPT_POSTFIELDS, json_encode($dadosAtualizados));
+            curl_setopt($chAtualizar, CURLOPT_POST, true);
+            curl_setopt($chAtualizar, CURLOPT_POSTFIELDS, $dadosEnviar); // <- Agora com suporte a imagem
+
             curl_setopt($chAtualizar, CURLOPT_HTTPHEADER, [
-                'Authorization: Bearer ' . $_SESSION['token'],
-                'Content-Type: application/json' // Corrigido: era Content_Type
+                'Authorization: Bearer ' . $_SESSION['token']
+                // Sem Content-Type manual
             ]);
 
             $resposta = curl_exec($chAtualizar);
             $statusCodeAtualizar = curl_getinfo($chAtualizar, CURLINFO_HTTP_CODE);
             curl_close($chAtualizar);
+
+
+
 
             if ($statusCodeAtualizar === 200) {
                 $_SESSION['msg_sucesso'] = "Perfil atualizado com sucesso";
@@ -99,8 +114,6 @@ class PerfilController extends Controller
         $statusCodeEstados = curl_getinfo($chEstado, CURLINFO_HTTP_CODE);
         curl_close($chEstado);
         $estados = ($statusCodeEstados == 200) ? json_decode($responseEstado, true) : [];
-
-
 
         $dados = array();
         $dados['titulo'] = 'KiOficina - Perfil';

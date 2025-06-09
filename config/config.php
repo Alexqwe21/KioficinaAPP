@@ -10,6 +10,8 @@ define('BASE_URL', 'http://localhost/kioficinaapp/public/');
 // Definir uma API BASE
 define('BASE_API', 'https://360criativo.com.br/api/');
 
+define('BASE_FOTO', 'https://360criativo.com.br/uploads/');
+
 // Sistema para carregamento automático 
 spl_autoload_register(function ($class) {
     if (file_exists('../app/controllers/'.$class.'.php')) {

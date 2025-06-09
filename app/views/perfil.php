@@ -12,11 +12,7 @@
                 MEU PERFIL
             </h2>
 
-            <div class="imgPerfil">
-                <div class="imgContainer">
-                    <img src="<?php echo BASE_URL ?>assets/img/member_2.jpg" alt="">
-                </div>
-            </div>
+
             <?php if (!empty($_SESSION['msg_sucesso'])): ?>
                 <div class="alert sucesso"><?= $_SESSION['msg_sucesso'] ?></div>
                 <?php unset($_SESSION['msg_sucesso']); ?>
@@ -26,7 +22,36 @@
                 <div class="alert erro"><?= $_SESSION['msg_erro'] ?></div>
                 <?php unset($_SESSION['msg_erro']); ?>
             <?php endif; ?>
-            <form method="POST" action="" class="form_box container">
+
+
+            <?php
+            $imagemPadrao = BASE_FOTO . 'sem-foto-cliente.png';
+
+            // Verifica se existe uma imagem cadastrada para o cliente
+            $fotoCliente = !empty($cliente['foto_cliente']) ?
+                BASE_FOTO . $cliente['foto_cliente'] :
+                $imagemPadrao;
+
+            ?>
+
+
+
+            <form method="POST" action="" class="form_box container" enctype="multipart/form-data" id="formFoto">
+
+
+                <div class="imgPerfil" id="imgPerfilContainer">
+                    <div class="imgContainer">
+                        <img id="imagemPerfil" src="<?= $fotoCliente ?>">
+                    </div>
+                    <!-- Botão de alteração de imagem -->
+                    <div>
+                        <input type="file" name="foto_cliente" id="foto_cliente" style="display:none;" accept="image/*" capture="camera">
+                        <input type="hidden" class="btn-upload" value="+" onclick="document.getElementById('foto_cliente').click()">
+                    </div>
+                </div>
+
+
+
 
                 <div class="input_group">
 
@@ -54,10 +79,10 @@
 
                     <!-- Logradouro -->
                     <label for="txtLogradouro">Logradouro:</label>
-                    <input name="txtLogradouro" id="txtLogradouro" type="text" value="<?= htmlspecialchars($partes[0], ENT_QUOTES, 'UTF-8') ?>" readonly >
+                    <input name="txtLogradouro" id="txtLogradouro" type="text" value="<?= htmlspecialchars($partes[0], ENT_QUOTES, 'UTF-8') ?>" readonly>
 
                     <!-- Cidade -->
-                    
+
 
                     <label for="txtCidade">Cidade:</label>
                     <input name="txtCidade" id="txtCidade" type="text" readonly value="<?= htmlspecialchars($cliente['cidade_cliente'], ENT_QUOTES, 'UTF-8') ?>">
@@ -99,7 +124,7 @@
                 <button type="submit" class="btnApp">SALVAR ALTERAÇÕES</button>
             </form>
 
-          
+
 
 
 
@@ -108,6 +133,31 @@
         </section>
 
     </main>
+
+
+    <script>
+     const inputFoto = document.getElementById('foto_cliente');
+            const imgPreview = document.getElementById('imagemPerfil');
+            const imgPerfilContainer = document.getElementById('imgPerfilContainer');
+ 
+            imgPerfilContainer.addEventListener('click', function() {
+                inputFoto.click();
+            })
+ 
+            inputFoto.addEventListener('change', function() {
+                const file = this.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        imgPreview.src = e.target.result;
+                    }
+                    reader.readAsDataURL(file);
+                }
+            });
+    </script>
+
+
+
 </body>
 
 </html>
