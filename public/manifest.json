@@ -1,0 +1,23 @@
+{
+    "name": "Aplicativo Ki-ofcina",
+    "short-name": "Kioficina",
+    "description": "Aplivativo para agendamento de serviços",
+    "start_url": "index.php",
+    "display": "standalone",
+    "theme_color": "#D48201",
+    "backgroud_color":"#D48201",
+    "id": "webdevsolutions.rrgarageapp",
+    "icons": [
+        {
+            "src": "assets/img/logo-preto.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "assets/img/logo-preto.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
